@@ -8,54 +8,31 @@ public class StructureProgram {
 	
 	public static void main(String[] args) {
 
-		int total = 0;
-		float avg;
+		
 		int menu;
 		boolean keepLoop = true;
 
-		Scanner scan = new Scanner(System.in);
 		
 		while(keepLoop) {
-		//----------메인 메뉴 부분-----------
-		System.out.println("\t⎡            ⎤\n");
-		System.out.println("\t⎢   메인 메뉴  ⎟\n");
-		System.out.println("\t⎣            ⎦\n");
-		System.out.println("\t1.성적입력");
-		System.out.println("\t2.성적출력");
-		System.out.println("\t3.종료");
-		System.out.println("\t>");
-		menu = scan.nextInt();
+			menu = 메뉴입력();
 		
-		switch(menu) {
+			switch(menu) {
 		
-		case 1: 
+			case 1: 
 			
-			성적입력();
+				성적입력();
 			
-		break;
-		
-		case 2: 
-				for(int i=0; i<3; i++)
-					total += kors[i];
-				
-				avg = (float)(total / 3.0);
-				
-				System.out.print("\t⎡            ⎤\n");
-				System.out.print("\t⎢   성적출력   ⎟\n");
-				System.out.print("\t⎣            ⎦\n");
-				
-				for(int i=0; i<3; i++)
-					System.out.printf("\t국어%d : %d\n", 3-i, kors[i]);
-				
-				
-				System.out.printf("\t총 : %d\n", total);
-				System.out.printf("\t평 : %6.2f\n", avg);
-				System.out.println("\t--------------------");
 				break;
-		case 3:
-			System.out.println("good bye~");
+		
+			case 2: 
+				성적출력();
 				
-			keepLoop = false;;
+				break;
+				
+			case 3:
+				System.out.println("good bye~");
+				
+				keepLoop = false;;
 				break;
 				
 		default:
@@ -63,6 +40,44 @@ public class StructureProgram {
 			}
 
 		}		
+	}
+	static void 성적출력() {
+		
+		int total = 0;
+		float avg;
+		
+		for(int i=0; i<3; i++)
+			total += kors[i];
+		
+		avg = (float)(total / 3.0);
+		
+		System.out.print("\t⎡            ⎤\n");
+		System.out.print("\t⎢   성적출력   ⎟\n");
+		System.out.print("\t⎣            ⎦\n");
+		
+		for(int i=0; i<3; i++)
+			System.out.printf("\t국어%d : %d\n", 3-i, kors[i]);
+		
+		
+		System.out.printf("\t총 : %d\n", total);
+		System.out.printf("\t평 : %6.2f\n", avg);
+		System.out.println("\t--------------------");
+	}
+	
+	static int 메뉴입력() {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("\t⎡            ⎤\n");
+		System.out.println("\t⎢   메인 메뉴  ⎟\n");
+		System.out.println("\t⎣            ⎦\n");
+		System.out.println("\t1.성적입력");
+		System.out.println("\t2.성적출력");
+		System.out.println("\t3.종료");
+		System.out.println("\t>");
+		int menu = scan.nextInt();
+		
+		return menu;
 	}
 	
 	static void 성적입력() {
