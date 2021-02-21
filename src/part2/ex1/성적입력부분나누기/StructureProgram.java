@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class StructureProgram {
 	
-	static int[] kors = new int[3];
 	
 	public static void main(String[] args) {
-
+		int[] korList = new int[3];
 		
 		int menu;
 		boolean keepLoop = true;
@@ -20,12 +19,12 @@ public class StructureProgram {
 		
 			case 1: 
 			
-				성적입력();
+				성적입력(korList);
 			
 				break;
 		
 			case 2: 
-				성적출력();
+				성적출력(korList);
 				
 				break;
 				
@@ -41,7 +40,7 @@ public class StructureProgram {
 
 		}		
 	}
-	static void 성적출력() {
+	static void 성적출력(int[] kors) {
 		
 		int total = 0;
 		float avg;
@@ -80,22 +79,26 @@ public class StructureProgram {
 		return menu;
 	}
 	
-	static void 성적입력() {
+	static void 성적입력(int[] kors) {
 		
 		Scanner scan = new Scanner(System.in);
+		
+		int kor;
 		
 		System.out.print("\t⎡            ⎤\n");
 		System.out.print("\t⎢   성적입력   ⎟\n");
 		System.out.print("\t⎣            ⎦\n");
 
-		for(int i=0; i<3; i++)
+		for(int i=0; i<3; i++)	{
 			do {
 				System.out.printf("\t국어%d:", i+1);
-				kors[i] = scan.nextInt();
+				kor = scan.nextInt();
 			
-				if(kors[i]<0 || 100<kors[i])
+				if(kor<0 || 100<kor)
 					System.out.println("성적범위(0~100)을 벗어났습니다.");
-			}while(kors[i]<0 || 100<kors[i]);
+			}while(kor<0 || 100<kor);
 		
+			kors[i] = kor;
+		}
 	}
 }
