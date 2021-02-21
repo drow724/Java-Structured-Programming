@@ -13,18 +13,18 @@ public class StructureProgram {
 
 		
 		while(keepLoop) {
-			menu = 메뉴입력();
+			menu = inputMenu();
 		
 			switch(menu) {
 		
 			case 1: 
 			
-				성적입력(korList);
+				inputKors(korList);
 			
 				break;
 		
 			case 2: 
-				성적출력(korList);
+				printKors(korList);
 				
 				break;
 				
@@ -40,7 +40,7 @@ public class StructureProgram {
 
 		}		
 	}
-	static void 성적출력(int[] kors) {
+	static void printKors(int[] kors) {
 		
 		int total = 0;
 		float avg;
@@ -63,7 +63,7 @@ public class StructureProgram {
 		System.out.println("\t--------------------");
 	}
 	
-	static int 메뉴입력() {
+	static int inputMenu() {
 		
 		Scanner scan = new Scanner(System.in);
 		
@@ -79,7 +79,7 @@ public class StructureProgram {
 		return menu;
 	}
 	
-	static void 성적입력(int[] kors) {
+	static void inputKors(int[] kors) {
 		
 		Scanner scan = new Scanner(System.in);
 		
