@@ -7,6 +7,7 @@ public class Program {
 	public static void main(String[] args) {
 		
 		Exam[] exams= new Exam[3];
+		int current = 0;
 	
 //		exams[0].kor = 30;
 	
@@ -26,12 +27,12 @@ public class Program {
 		
 			case 1: 
 			
-				inputList(exams);
+				inputList(exams, current);
 			
 				break;
 		
 			case 2: 
-				printList(exams);
+				printList(exams,current);
 				
 				break;
 				
@@ -46,12 +47,12 @@ public class Program {
 			}
 		}
 	}
-			private static void printList(Exam[] exams) {
+			private static void printList(Exam[] exams, int size) {
 				System.out.print("⎡            ⎤\n");
 				System.out.print("⎢   성적출력   ⎟\n");
 				System.out.print("⎣            ⎦\n");
 				
-				for(int i=0; i<3; i++) {
+				for(int i=0; i<size; i++) {
 				Exam exam = exams[i];
 				int kor = exam.kor;
 				int eng = exam.eng;
@@ -86,14 +87,11 @@ public class Program {
 				return menu;
 			}	
 
-	private static void inputList(Exam[] exams) {
+	private static void inputList(Exam[] exams, int current) {
 		Scanner scan = new Scanner(System.in);
-		
 		System.out.print("⎡            ⎤\n");
 		System.out.print("⎢   성적입력   ⎟\n");
 		System.out.print("⎣            ⎦\n");
-
-		for(int i=0; i<3; i++) {
 			
 			int kor,eng,math;
 	
@@ -126,7 +124,8 @@ public class Program {
 			exam.eng = eng;
 			exam.math = math;
 			
-			exams[i] = exam;
-		}
+			exams[current] = exam;
+			current++;
+			
 	}
 }
