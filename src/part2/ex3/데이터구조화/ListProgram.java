@@ -121,8 +121,19 @@ public class ListProgram {
 			exam.eng = eng;
 			exam.math = math;
 			
-			if(!exams의 공간이 있는지) {
-				공간을 늘려주
+			Exam[] exams = list.exams;
+			int size = list.current;
+			
+			if(exams.length == size) {
+				//1.크기가 5개 정도 더 새로운 배열을 생성하시오.
+				Exam[] temp = new Exam[list.exams.length + 5];
+				//2.값을 이주시키기
+				for(int i =0; i<size; i++)
+					temp[i] = exams[i];
+				//3. list.exams가 새로만든 temp 배열을 참조하도록 한다.
+				list.exams = temp;
+				
+				
 			}
 			
 			list.exams[list.current] = exam;
