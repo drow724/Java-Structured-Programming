@@ -42,11 +42,15 @@ public class ListProgram {
 		}
 	}
 			private static void printList(ExamList list) {
+				printList(list, list.current);
+			}
+			
+			private static void printList(ExamList list, int size) {
 				System.out.print("⎡            ⎤\n");
 				System.out.print("⎢   성적출력   ⎟\n");
 				System.out.print("⎣            ⎦\n");
 				
-				int size = list.current;
+//				int size = list.current;
 				Exam[] exams = list.exams; 
 				
 				for(int i=0; i<size; i++) {
@@ -66,8 +70,7 @@ public class ListProgram {
 				System.out.printf("평 : %6.2f\n", avg);
 				System.out.println("--------------------");
 				}
-	}
-
+			}
 			static int inputMenu() {
 				
 				Scanner scan = new Scanner(System.in);
